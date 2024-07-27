@@ -88,7 +88,7 @@ $(OUTPUT): $(TARGET).elf
 
 $(TARGET).elf: $(OFILES)
 	@echo "[LD]    $(notdir $@)"
-	@$(LD) $(LDFLAGS) $(OFILES) -o $@ -Wl,-Map=$(@:.elf=.map)
+	@$(LD) $(OFILES) $(LDFLAGS) -o $@ -Wl,-Map=$(@:.elf=.map)
 
 -include $(DEPSDIR)/*.d
 
