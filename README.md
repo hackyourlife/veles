@@ -67,3 +67,23 @@ There is also regularly the question of "I see this strange pattern in the
 plot, but where does it come from?", but answering this question would require
 adding some mechanism to attribute individual points to locations in the source
 file.
+
+
+Screenshots
+-----------
+
+GBA ROM:
+
+![GBA ROM](https://raw.githubusercontent.com/hackyourlife/veles/master/doc/gba-rom.png)
+
+PDP-11 (RL02) disk image:
+
+![RL02 disk](https://raw.githubusercontent.com/hackyourlife/veles/master/doc/pdp11-disk.png)
+
+MP4 file:
+
+![MP4 file](https://raw.githubusercontent.com/hackyourlife/veles/master/doc/mp4-file.png)
+
+FLAC file:
+
+![FLAC file](https://raw.githubusercontent.com/hackyourlife/veles/master/doc/flac-file.png)
