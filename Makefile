@@ -6,7 +6,7 @@ export	OBJCOPY	:=	$(PREFIX)objcopy
 export	NM	:=	$(PREFIX)nm
 export	SIZE	:=	$(PREFIX)size
 export	BIN2O	:=	bin2o
-export	GLSLANG	:=	glslang
+export	GLSLANG	:=	glslangValidator
 
 export	NDEBUG
 
@@ -36,7 +36,7 @@ CFLAGS		:=	$(OPT) -Wall -std=gnu99 \
 			$(DEBUG) $(ASAN)
 
 LIBS		:=	-lGL -lglut -lm
-LDFLAGS		:=	-Wl,-x -Wl,--gc-sections $(LIBS) $(OPT) $(ASAN)
+LDFLAGS		:=	-Wl,-x -Wl,--gc-sections $(OPT) $(ASAN)
 
 CFILES		:=	$(foreach dir,$(SOURCES),$(notdir $(wildcard $(dir)/*.c)))
 GLSLFILES	:=	$(foreach dir,$(GLSLSOURCES),$(notdir $(wildcard $(dir)/*.glsl)))
@@ -88,7 +88,7 @@ $(OUTPUT): $(TARGET).elf
 
 $(TARGET).elf: $(OFILES)
 	@echo "[LD]    $(notdir $@)"
-	@$(LD) $(LDFLAGS) $(OFILES) -o $@ -Wl,-Map=$(@:.elf=.map)
+	@$(LD) $(LDFLAGS) $(OFILES) $(LIBS) -o $@ -Wl,-Map=$(@:.elf=.map)
 
 -include $(DEPSDIR)/*.d
 
